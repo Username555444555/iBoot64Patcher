@@ -15,8 +15,8 @@ curl -sO https://apt.llvm.org/llvm.sh
 chmod +x llvm.sh
 ./llvm.sh 13 all
 ln -sf /usr/bin/ld.lld-13 /usr/bin/ld
-curl -fSL --retry 5 --retry-delay 3 --retry-connrefused -o Linux_x86_64_Release_Latest.tar.zst https://cdn.cryptiiiic.com/deps/static/Linux/x86_64/Linux_x86_64_Release_Latest.tar.zst &
-curl -fSL --retry 5 --retry-delay 3 --retry-connrefused -o Linux_x86_64_Debug_Latest.tar.zst https://cdn.cryptiiiic.com/deps/static/Linux/x86_64/Linux_x86_64_Debug_Latest.tar.zst &
+curl -kfSL --retry 5 --retry-delay 3 --retry-connrefused -o Linux_x86_64_Release_Latest.tar.zst https://cdn.cryptiiiic.com/deps/static/Linux/x86_64/Linux_x86_64_Release_Latest.tar.zst &
+curl -kfSL --retry 5 --retry-delay 3 --retry-connrefused -o Linux_x86_64_Debug_Latest.tar.zst https://cdn.cryptiiiic.com/deps/static/Linux/x86_64/Linux_x86_64_Debug_Latest.tar.zst &
 curl -fSL --retry 5 --retry-delay 3 --retry-connrefused -o cmake-3.23.2-linux-x86_64.tar.gz https://github.com/Kitware/CMake/releases/download/v3.23.2/cmake-3.23.2-linux-x86_64.tar.gz &
 wait
 for f in Linux_x86_64_Release_Latest.tar.zst Linux_x86_64_Debug_Latest.tar.zst cmake-3.23.2-linux-x86_64.tar.gz; do
