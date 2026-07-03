@@ -27,6 +27,8 @@ jobs:
           image: debian:buster-slim
           options: -v ${{ github.workspace }}/..:/tmp/Builder/repos/
           run: |
+            sed -i 's|deb.debian.org/debian |archive.debian.org/debian |g; s|deb.debian.org/debian-security|archive.debian.org/debian-security|g; s|security.debian.org|archive.debian.org|g' /etc/apt/sources.list
+            echo 'Acquire::Check-Valid-Until "false";' > /etc/apt/apt.conf.d/99no-check-valid-until
             /tmp/Builder/repos/iBoot64Patcher/.github/workflows/linux-bootstrap.sh
             /tmp/Builder/repos/iBoot64Patcher/.github/workflows/linux-build.sh
             /tmp/Builder/repos/iBoot64Patcher/.github/workflows/linux-post.sh
